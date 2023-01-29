@@ -1,15 +1,13 @@
-// This is a "stub" file.  It's a little start on your solution.
-// It's not a complete solution though; you have to write some code.
-
-// Package twofer should have a package comment that summarizes what it's about.
-// https://golang.org/doc/effective_go.html#commentary
+//Package twofer implements the function for the Two-fer go exercise.
 package twofer
 
-// ShareWith should have a comment documenting it.
+import "fmt"
+
+// ShareWith function returns the string 'One for you, one for me.' if no name is given.
+// If a name is given 'One for {name}, one for me.' is returned instead.
 func ShareWith(name string) string {
-	// Write some code here to pass the test suite.
-	// Then remove all the stock comments.
-	// They're here to help you get started but they only clutter a finished solution.
-	// If you leave them in, reviewers may protest!
-	return ""
+	if name != "" {
+		return fmt.Sprintf("One for %s, one for me.", name)
+	}
+	return "One for you, one for me."
 }
