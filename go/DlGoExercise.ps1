@@ -7,10 +7,13 @@ param (
 
 cmd.exe /c "exercism download --exercise=${Stub} --track=go"
 
+$json = Get-Content -Raw $env:APPDATA\exercism\user.json | ConvertFrom-Json
+$dir = "{0}\go\" -f $json.workspace
+
 if ($Easy) {
-    Move-Item ".\${Stub}\" ".\Easy\"
+    Move-Item "$dir\$Stub\" "$dir\Easy\"
 } elseif ($Medium) {
-    Move-Item ".\${Stub}\" ".\Medium\"
+    Move-Item "$dir\$Stub\" "$dir\Medium\"
 } elseif ($Hard) {
-    Move-Item ".\${Stub}\" ".\Hard\"
+    Move-Item "$dir\$Stub\" "$dir\Hard\"
 }
